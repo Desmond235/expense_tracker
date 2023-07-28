@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:expense_planner/model/expense_list.dart';
+import 'package:expense_planner/model/expense.dart';
+
 class Expenses extends StatefulWidget {
   const Expenses({super.key, required this.title});
   final String title;
@@ -9,15 +12,26 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
+  final List<Expense> _registeredExpenses = [
+    Expense(
+      title: "I'm a man of God",
+      amount: 23.41,
+      date: DateTime.now(),
+    ),
+     Expense(
+      title: "Flutter is the best",
+      amount: 13.35,
+      date: DateTime.now(),
+    )
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title,
-        style: const  TextStyle(
-          fontWeight: FontWeight.w500
-        ),
+        title: Text(
+          widget.title,
+          style: const TextStyle(fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
         leading: const Icon(Icons.arrow_back),
@@ -25,21 +39,15 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           const Center(
-             child: Text(
+            child: Text(
               "Get ready",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 30,
               ),
-                     ),
-           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.2,
-            height: 200,
-            child: const Placeholder( 
-              child: Center(child: Text('Expenses')),
             ),
-          )
+          ),
+          ExpenseList(expenses: _registeredExpenses)
         ],
       ),
     );

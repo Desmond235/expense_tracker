@@ -11,9 +11,7 @@ class ExpenseList extends StatelessWidget {
     return SizedBox(
       height: 400,
       child: ListView.builder(itemBuilder: (context, index) {
-        return Card(
-          child: ExpenseItem(expenses[index]),
-        );
+        return ExpenseItem(expenses[index]);
       },
       itemCount: expenses.length,
       ),

@@ -18,11 +18,13 @@ class _ExpensesState extends State<Expenses> {
       title: "I'm a man of God",
       amount: 23.41,
       date: DateTime.now(),
+      category: Category.food
     ),
      Expense(
       title: "Flutter is the best",
       amount: 13.35,
       date: DateTime.now(),
+      category: Category.travel
     )
   ];
   @override

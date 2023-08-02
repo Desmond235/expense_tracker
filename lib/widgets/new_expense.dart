@@ -10,6 +10,11 @@
  class _NewExpenseState extends State<NewExpense> {
    @override
    Widget build(BuildContext context) {
-     return Container();
+     return const Padding(padding: EdgeInsets.all(16),
+     child: TextField(
+      maxLength: 60,
+      decoration: InputDecoration(label: Text('Title')),
+     ),
+     );
    }
  }

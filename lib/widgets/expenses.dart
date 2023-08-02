@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:expense_planner/widgets/expense_list/expense_list.dart';
@@ -15,20 +14,26 @@ class Expenses extends StatefulWidget {
 class _ExpensesState extends State<Expenses> {
   final List<Expense> _registeredExpenses = [
     Expense(
-      title: "I'm a man of God",
-      amount: 23.41,
-      date: DateTime.now(),
-      category: Category.food
-    ),
-     Expense(
-      title: "Flutter is the best",
-      amount: 13.35,
-      date: DateTime.now(),
-      category: Category.travel
-    )
+        title: "I'm a man of God",
+        amount: 23.41,
+        date: DateTime.now(),
+        category: Category.food),
+    Expense(
+        title: "Flutter is the best",
+        amount: 13.35,
+        date: DateTime.now(),
+        category: Category.leisure)
   ];
+
+  void _openBtmSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => const Text('modal bottom sheet'),
+    );
+  }
+
   @override
-  Widget build(BuildContext context) {                          
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -37,7 +42,12 @@ class _ExpensesState extends State<Expenses> {
           style: const TextStyle(fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
-        leading: const Icon(Icons.arrow_back),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: _openBtmSheet,
+          ),
+        ],
       ),
       body: Column(
         children: [

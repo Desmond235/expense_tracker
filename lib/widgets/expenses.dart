@@ -28,6 +28,8 @@ class _ExpensesState extends State<Expenses> {
 
   void _openBtmSheet() {
     showModalBottomSheet(
+       showDragHandle: true,
+      enableDrag: true,
       context: context,
       builder: (ctx) => const NewExpense(),
     );
@@ -52,15 +54,6 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          const Center(
-            child: Text(
-              "Get ready",
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 30,
-              ),
-            ),
-          ),
           ExpenseList(expenses: _registeredExpenses)
         ],
       ),

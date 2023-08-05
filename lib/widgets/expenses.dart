@@ -49,6 +49,7 @@ class _ExpensesState extends State<Expenses> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: _openBtmSheet,
+            tooltip: "Add expense",
           ),
         ],
       ),

@@ -75,6 +75,7 @@ class _NewExpenseState extends State<NewExpense> {
                       icon: const Icon(
                         Icons.calendar_month,
                       ),
+                      tooltip: "Choose date",
                     ),
                   ],
                 ),

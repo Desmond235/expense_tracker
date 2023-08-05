@@ -9,7 +9,7 @@ class ExpenseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 580,
       child: ListView.builder(itemBuilder: (context, index) {
         return ExpenseItem(expenses[index]);
       },

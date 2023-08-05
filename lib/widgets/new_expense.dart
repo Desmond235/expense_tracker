@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_planner/model/expense.dart';
+import 'package:expense_planner/widgets/add_new_expense.dart';
 
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key, required this.addExpense});
@@ -89,80 +90,14 @@ class _NewExpenseState extends State<NewExpense> {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          TextField(
-            maxLength: 60,
-            controller: _titleController,
-            decoration: const InputDecoration(
-              label: Text('Title'),
-            ),
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: _amountController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    prefixText: "\$\t",
-                    label: Text('Amount'),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(_chosenDate == null
-                        ? 'No date chosen'
-                        : formater.format(_chosenDate!)),
-                    IconButton(
-                      onPressed: _datePicker,
-                      icon: const Icon(
-                        Icons.calendar_month,
-                      ),
-                      tooltip: "Choose date",
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              const SizedBox(
-                width: 10,
-              ),
-              DropdownButton(
-                value: _selectedCategory,
-                items: Category.values
-                    .map(
-                      (category) => DropdownMenuItem(
-                        value: category,
-                        child: Text(
-                          category.name.toUpperCase(),
-                        ),
-                      ),
-                    )
-                    .toList(),
-                onChanged: _chosenCategory,
-              ),
-              const Spacer(),
-              ElevatedButton(
-                onPressed: _submitExpense,
-                child: const Text('save expenses'),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Cancel'),
-              ),
-            ],
+          AddNewExpense(
+            titleController: _titleController,
+            amountController: _amountController,
+            selectedDate: _chosenDate,
+            datePicker: _datePicker,
+            chosenCategory: _chosenCategory,
+            submitExpense: _submitExpense,
+            onSelectedCategory: _selectedCategory,
           )
         ],
       ),

@@ -28,13 +28,19 @@ class _ExpensesState extends State<Expenses> {
 
   void _openBtmSheet() {
     showModalBottomSheet(
+      isScrollControlled: true,
        showDragHandle: true,
       enableDrag: true,
       context: context,
-      builder: (ctx) => const NewExpense(),
+      builder: (ctx) =>  NewExpense(addExpense: _addExpense),
     );
   }
 
+   void _addExpense(Expense expense){
+    setState(() {
+       _registeredExpenses.add(expense);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

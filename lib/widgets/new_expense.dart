@@ -16,7 +16,7 @@ class _NewExpenseState extends State<NewExpense> {
   DateTime? _chosenDate;
 
   Category _selectedCategory = Category.leisure;
-
+ 
   void _datePicker() async {
     final todayDate = DateTime.now();
     final firstDate =

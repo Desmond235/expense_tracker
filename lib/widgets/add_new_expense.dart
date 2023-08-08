@@ -69,11 +69,11 @@ class AddNewExpense extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          Row(
+          Row(   
             children: [
               const SizedBox(
                 width: 10,
-              ),
+              ),      
               DropdownButton(
                 value: onSelectedCategory,
                 items: Category.values

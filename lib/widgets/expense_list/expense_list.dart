@@ -9,14 +9,24 @@ class ExpenseList extends StatelessWidget {
   final List<Expense> expenses;
   final void Function(Expense expense) onRemoveExpense;
 
+  void reOrder(int oldIndex , int newIndex){
+    if (oldIndex < newIndex){
+      newIndex--;
+    }
+    final item = expenses.removeAt(oldIndex);
+    expenses.insert(newIndex, item);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 580,
-      child: ListView.builder(
+      child: ReorderableListView.builder(
         itemBuilder: (context, index) {
           return Dismissible(
+            
             background: Card(
+              elevation: 0,
               color: const Color.fromARGB(255, 248, 52, 38),
               child: Container(
                 margin: const EdgeInsets.only(top: 25),
@@ -41,6 +51,7 @@ class ExpenseList extends StatelessWidget {
             child: ExpenseItem(expenses[index]),
           );
         },
+      onReorder: reOrder,
         itemCount: expenses.length,
       ),
     );

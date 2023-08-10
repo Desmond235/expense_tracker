@@ -29,24 +29,25 @@ class _ExpensesState extends State<Expenses> {
   void _openBtmSheet() {
     showModalBottomSheet(
       isScrollControlled: true,
-       showDragHandle: true,
+      showDragHandle: true,
       enableDrag: true,
       context: context,
-      builder: (ctx) =>  NewExpense(addExpense: _addExpense),
+      builder: (ctx) => NewExpense(addExpense: _addExpense),
     );
   }
 
-   void _addExpense(Expense expense){
+  void _addExpense(Expense expense) {
     setState(() {
-       _registeredExpenses.add(expense);
+      _registeredExpenses.add(expense);
     });
   }
 
-  void _removeExpense( Expense expense){
+  void _removeExpense(Expense expense) {
     setState(() {
       _registeredExpenses.remove(expense);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +68,10 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          ExpenseList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,)
+          ExpenseList(
+            expenses: _registeredExpenses,
+            onRemoveExpense: _removeExpense,
+          )
         ],
       ),
     );

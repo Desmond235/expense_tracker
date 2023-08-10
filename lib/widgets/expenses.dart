@@ -26,6 +26,7 @@ class _ExpensesState extends State<Expenses> {
         category: Category.leisure)
   ];
 
+// showing bottom sheet
   void _openBtmSheet() {
     showModalBottomSheet(
       isScrollControlled: true,
@@ -42,6 +43,7 @@ class _ExpensesState extends State<Expenses> {
     });
   }
 
+// removing expense
   void _removeExpense(Expense expense) {
     setState(() {
       _registeredExpenses.remove(expense);

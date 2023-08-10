@@ -17,6 +17,7 @@ class _NewExpenseState extends State<NewExpense> {
 
   Category _selectedCategory = Category.leisure;
  
+ //Method for showiing datepicker
   void _datePicker() async {
     final todayDate = DateTime.now();
     final firstDate =
@@ -37,7 +38,8 @@ class _NewExpenseState extends State<NewExpense> {
     _amountController.dispose();
     super.dispose();
   }
-
+    
+    // adding expense 
   void _submitExpense() {
     final enteredAmount = double.tryParse(_amountController.text);
     final isAmountInvalid = enteredAmount == null || enteredAmount <= 0;
@@ -63,6 +65,8 @@ class _NewExpenseState extends State<NewExpense> {
       );
       return;
     }
+    
+    // adding expense
     widget.addExpense(
       Expense(
         title: _titleController.text,

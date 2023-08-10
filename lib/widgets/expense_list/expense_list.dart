@@ -23,8 +23,9 @@ class ExpenseList extends StatelessWidget {
       height: 580,
       child: ReorderableListView.builder(
         itemBuilder: (context, index) {
+
+          //  this widget is used for deleting an expense
           return Dismissible(
-            
             background: Card(
               elevation: 0,
               color: const Color.fromARGB(255, 248, 52, 38),

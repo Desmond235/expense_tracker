@@ -1,6 +1,7 @@
 import 'package:expense_planner/model/expense.dart';
 import 'package:flutter/material.dart';
 
+// This widget display expenses 
 class ExpenseItem extends StatelessWidget {
   const ExpenseItem(this.expense, {Key? key}) : super(key: key);
 

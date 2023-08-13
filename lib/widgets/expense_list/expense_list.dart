@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:expense_planner/model/expense.dart';
 
 class ExpenseList extends StatelessWidget {
-  const ExpenseList(
-      {super.key, required this.expenses, required this.onRemoveExpense});
+  const ExpenseList({
+    super.key,
+    required this.expenses,
+    required this.onRemoveExpense,
+  });
 
   final List<Expense> expenses;
   final void Function(Expense expense) onRemoveExpense;
 
-  void reOrder(int oldIndex , int newIndex){
-    if (oldIndex < newIndex){
+  void reOrder(int oldIndex, int newIndex) {
+    if (oldIndex < newIndex) {
       newIndex--;
     }
     final item = expenses.removeAt(oldIndex);
@@ -23,7 +26,6 @@ class ExpenseList extends StatelessWidget {
       height: 580,
       child: ReorderableListView.builder(
         itemBuilder: (context, index) {
-
           //  this widget is used for deleting an expense
           return Dismissible(
             background: Card(
@@ -52,7 +54,7 @@ class ExpenseList extends StatelessWidget {
             child: ExpenseItem(expenses[index]),
           );
         },
-      onReorder: reOrder,
+        onReorder: reOrder,
         itemCount: expenses.length,
       ),
     );

@@ -29,21 +29,21 @@ class ExpenseList extends StatelessWidget {
           //  this widget is used for deleting an expense
           return Dismissible(
             background: Card(
-              elevation: 0,
-              color: const Color.fromARGB(255, 248, 52, 38),
-              child: Container(
-                margin: const EdgeInsets.only(top: 25),
-                child: const ListTile(
-                  leading: Icon(
-                    Icons.delete_outline,
-                    color: Colors.white,
-                    size: 25,
-                  ),
-                  trailing: Icon(
-                    Icons.delete_outline,
-                    color: Colors.white,
-                    size: 25,
-                  ),
+              color: Theme.of(context).colorScheme.error,
+              margin: EdgeInsets.symmetric(
+                horizontal: Theme.of(context).cardTheme.margin!.horizontal,
+                vertical: 7
+              ),
+              child: const ListTile(
+                leading: Icon(
+                  Icons.delete_outline,
+                  color: Colors.white,
+                  size: 25,
+                ),
+                trailing: Icon(
+                  Icons.delete_outline,
+                  color: Colors.white,
+                  size: 25,
                 ),
               ),
             ),

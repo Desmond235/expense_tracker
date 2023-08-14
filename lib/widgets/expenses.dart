@@ -80,7 +80,6 @@ class _ExpensesState extends State<Expenses> {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(
           widget.title,
           style: const TextStyle(fontWeight: FontWeight.w500),

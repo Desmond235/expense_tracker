@@ -101,9 +101,8 @@ class _NewExpenseState extends State<NewExpense> {
             datePicker: _datePicker,
             chosenCategory: _chosenCategory,
             submitExpense: _submitExpense,
-            onSelectedCategory: _selectedCategory,
+            onSelectedCategory: _selectedCategory, 
           ),
-           const Text('come'),
         ],
       ),
     );

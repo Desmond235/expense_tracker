@@ -102,7 +102,8 @@ class _NewExpenseState extends State<NewExpense> {
             chosenCategory: _chosenCategory,
             submitExpense: _submitExpense,
             onSelectedCategory: _selectedCategory,
-          )
+          ),
+           const Text('come'),
         ],
       ),
     );

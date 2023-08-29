@@ -31,15 +31,13 @@ class MyApp extends StatelessWidget {
   }
 
 // theme for button
-  ElevatedButtonThemeData _elevatedButtonTheme(ColorScheme  eColor){
+  ElevatedButtonThemeData _elevatedButtonTheme(ColorScheme eColor) {
     return ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: eColor.primaryContainer,
-        foregroundColor: eColor.onPrimaryContainer,
-      )
-    );
+        style: ElevatedButton.styleFrom(
+      backgroundColor: eColor.primaryContainer,
+      foregroundColor: eColor.onPrimaryContainer,
+    ));
   }
-  
 
   // This widget is the root of your application.
   @override
@@ -49,22 +47,25 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: kDarkColorScheme,
         cardTheme: _cardTheme(kDarkColorScheme),
-        elevatedButtonTheme: _elevatedButtonTheme(kDarkColorScheme)
+        elevatedButtonTheme: _elevatedButtonTheme(kDarkColorScheme),
       ),
+      
       theme: ThemeData().copyWith(
-          colorScheme: colorScheme,
-          useMaterial3: true,
-          appBarTheme: const AppBarTheme().copyWith(
-              backgroundColor: colorScheme.onPrimaryContainer,
-              foregroundColor: colorScheme.primaryContainer),
-          cardTheme: _cardTheme(colorScheme),
-          elevatedButtonTheme:_elevatedButtonTheme(colorScheme),
-          textTheme: ThemeData().textTheme.copyWith(
-                  titleLarge: TextStyle(
+        colorScheme: colorScheme,
+        useMaterial3: true,
+        appBarTheme: const AppBarTheme().copyWith(
+            backgroundColor: colorScheme.onPrimaryContainer,
+            foregroundColor: colorScheme.primaryContainer),
+        cardTheme: _cardTheme(colorScheme),
+        elevatedButtonTheme: _elevatedButtonTheme(colorScheme),
+        textTheme: ThemeData().textTheme.copyWith(
+              titleLarge: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: colorScheme.onSecondaryContainer,
                 fontSize: 16,
-              ))),
+              ),
+            ),
+      ),
       home: const Expenses(title: 'Expense Tracker'),
       debugShowCheckedModeBanner: false,
     );

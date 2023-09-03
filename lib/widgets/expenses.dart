@@ -1,3 +1,4 @@
+import 'package:expense_planner/widgets/chart/chart.dart.dart';
 import 'package:flutter/material.dart';
 
 import 'package:expense_planner/widgets/new_expense.dart';
@@ -95,7 +96,10 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [mainContent],
+          children: [
+            Chart(expenses: _registeredExpenses),
+            Expanded(child: mainContent)
+          ],
         ),
       ),
     );

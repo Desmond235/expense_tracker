@@ -93,8 +93,10 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
-        children: [mainContent],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [mainContent],
+        ),
       ),
     );
   }

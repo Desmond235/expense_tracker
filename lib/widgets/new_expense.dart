@@ -16,8 +16,8 @@ class _NewExpenseState extends State<NewExpense> {
   DateTime? _chosenDate;
 
   Category _selectedCategory = Category.leisure;
- 
- //Method for showiing datepicker
+
+  //Method for showiing datepicker
   void _datePicker() async {
     final todayDate = DateTime.now();
     final firstDate =
@@ -38,8 +38,8 @@ class _NewExpenseState extends State<NewExpense> {
     _amountController.dispose();
     super.dispose();
   }
-    
-    // adding expense 
+
+  // adding expense
   void _submitExpense() {
     final enteredAmount = double.tryParse(_amountController.text);
     final isAmountInvalid = enteredAmount == null || enteredAmount <= 0;
@@ -66,7 +66,7 @@ class _NewExpenseState extends State<NewExpense> {
       return;
     }
 
-    // This add new expenses 
+    // This add new expenses
     widget.addExpense(
       Expense(
         title: _titleController.text,
@@ -90,20 +90,26 @@ class _NewExpenseState extends State<NewExpense> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          AddNewExpense(
-            titleController: _titleController,
-            amountController: _amountController,
-            selectedDate: _chosenDate,
-            datePicker: _datePicker,
-            chosenCategory: _chosenCategory,
-            submitExpense: _submitExpense,
-            onSelectedCategory: _selectedCategory,
+    final keyboardWhiteSpace = MediaQuery.of(context).viewInsets.bottom;
+    return SizedBox(
+      height: double.infinity,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(16, 48, 16, keyboardWhiteSpace + 16),
+          child: Column(
+            children: [
+              AddNewExpense(
+                titleController: _titleController,
+                amountController: _amountController,
+                selectedDate: _chosenDate,
+                datePicker: _datePicker,
+                chosenCategory: _chosenCategory,
+                submitExpense: _submitExpense,
+                onSelectedCategory: _selectedCategory,
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

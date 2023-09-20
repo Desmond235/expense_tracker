@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:expense_planner/widgets/expenses.dart';
+// import 'package:flutter/services.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations(
+  //   [DeviceOrientation.portraitUp],
+  // ).then((_) {});
   runApp(const MyApp());
 }
 
@@ -49,7 +54,6 @@ class MyApp extends StatelessWidget {
         cardTheme: _cardTheme(kDarkColorScheme),
         elevatedButtonTheme: _elevatedButtonTheme(kDarkColorScheme),
       ),
-      
       theme: ThemeData().copyWith(
         colorScheme: colorScheme,
         useMaterial3: true,

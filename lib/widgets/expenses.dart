@@ -31,6 +31,7 @@ class _ExpensesState extends State<Expenses> {
   void _openBtmSheet() {
     showModalBottomSheet(
       isScrollControlled: true,
+      useSafeArea: true,
       showDragHandle: true,
       enableDrag: true,
       context: context,
@@ -46,12 +47,12 @@ class _ExpensesState extends State<Expenses> {
 
 // removing expense
   void _removeExpense(Expense expense) {
-    final  expensesIndex = _registeredExpenses.indexOf(expense);
+    final expensesIndex = _registeredExpenses.indexOf(expense);
     setState(() {
       _registeredExpenses.remove(expense);
     });
-     
-     ScaffoldMessenger.of(context).clearSnackBars();
+
+    ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: const Text("Expense deleted"),
@@ -60,7 +61,7 @@ class _ExpensesState extends State<Expenses> {
           label: "Undo",
           onPressed: () {
             setState(() {
-               _registeredExpenses.insert(expensesIndex, expense);
+              _registeredExpenses.insert(expensesIndex, expense);
             });
           },
         ),
@@ -70,6 +71,7 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     Widget mainContent = const Center(
       child: Text("No expenses added yet!"),
     );
@@ -94,14 +96,20 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Chart(expenses: _registeredExpenses),
-            mainContent
-          ],
-        ),
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                Chart(expenses: _registeredExpenses),
+                Expanded(child: mainContent)
+              ],
+            )
+          : Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: Chart(expenses: _registeredExpenses)),
+                Expanded(child: mainContent)
+              ],
+            ),
     );
   }
 }

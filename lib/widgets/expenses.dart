@@ -14,18 +14,7 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
-  final List<Expense> _registeredExpenses = [
-    Expense(
-        title: "I'm a man of God",
-        amount: 23.41,
-        date: DateTime.now(),
-        category: Category.food),
-    Expense(
-        title: "Flutter is the best",
-        amount: 13.35,
-        date: DateTime.now(),
-        category: Category.leisure)
-  ];
+  final List<Expense> _registeredExpenses = [];
 
 // showing bottom sheet
   void _openBtmSheet() {
@@ -73,7 +62,15 @@ class _ExpensesState extends State<Expenses> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     Widget mainContent = const Center(
-      child: Text("No expenses added yet!"),
+      child: Padding(
+        padding: EdgeInsets.only(top: 0),
+        child: Text("No expenses added yet!",
+         style: TextStyle(
+          fontWeight: FontWeight.bold,
+           fontSize: 20,
+           ),
+        ),
+      ),
     );
     if (_registeredExpenses.isNotEmpty) {
       mainContent = ExpenseList(

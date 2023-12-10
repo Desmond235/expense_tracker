@@ -49,14 +49,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
-        useMaterial3: true,
         colorScheme: kDarkColorScheme,
         cardTheme: _cardTheme(kDarkColorScheme),
         elevatedButtonTheme: _elevatedButtonTheme(kDarkColorScheme),
       ),
       theme: ThemeData().copyWith(
         colorScheme: colorScheme,
-        useMaterial3: true,
         appBarTheme: const AppBarTheme().copyWith(
             backgroundColor: colorScheme.onPrimaryContainer,
             foregroundColor: colorScheme.primaryContainer),

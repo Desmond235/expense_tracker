@@ -30,7 +30,7 @@ class _ExpensesState extends State<Expenses> {
 
   void _addExpense(Expense expense) {
     setState(() {
-      _registeredExpenses.add(expense);
+     _registeredExpenses.add(expense); 
     });
   }
 

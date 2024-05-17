@@ -1,4 +1,4 @@
-import 'package:expense_planner/widgets/chart/chart.dart.dart';
+import 'package:expense_planner/widgets/chart/chart.dart';
 import 'package:flutter/material.dart';
 
 import 'package:expense_planner/widgets/new_expense.dart';
